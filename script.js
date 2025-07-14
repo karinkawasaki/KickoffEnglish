@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
       phrase: "Clean sheet",
       translation: "無失点",
       sentence: "The goalkeeper kept a clean sheet today.",
-      sentenceJP: "ゴールキーパーは今日無失点だった。"
+      sentenceJP: "今日ゴールキーパーは無失点に抑えた。"
     },
     {
       phrase: "Park the Bus",
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
       phrase: "Nutmeg",
       translation: "股抜き",
       sentence: "He nutmegged the defender and passed the ball.",
-      sentenceJP: "彼は相手の股を抜いてボールを通した。"
+      sentenceJP: "彼は相手の股を抜いてボールをパスした。"
     },
     {
       phrase: "Equalizer",
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
       phrase: "Under pressure",
       translation: "プレッシャーを受けている",
       sentence: "The team was under pressure in the second half.",
-      sentenceJP: "そのチームは後半にプレッシャーを受けていた。"
+      sentenceJP: "チームは後半にプレッシャーを受けていた。"
     },
     {
       phrase: "Injury blow",
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
       phrase: "Playmaker",
       translation: "司令塔",
       sentence: "The playmaker controlled the game brilliantly.",
-      sentenceJP: "その司令塔は見事に試合をコントロールした。"
+      sentenceJP: "司令塔は見事に試合をコントロールした。"
     },
     {
       phrase: "Promotion",
@@ -79,9 +79,10 @@ document.addEventListener("DOMContentLoaded", function () {
       phrase: "Derby match",
       translation: "ダービーマッチ",
       sentence: "The derby match was intense from start to finish.",
-      sentenceJP: "そのダービーマッチは最初から最後まで激しかった。"
+      sentenceJP: "ダービーマッチは最初から最後まで激しかった。"
     }
   ];
+
 
   // HTMLに動的にカードを追加
   const container = document.getElementById("card-container");
@@ -89,10 +90,17 @@ document.addEventListener("DOMContentLoaded", function () {
   wordData.forEach((word, index) => {
     const card = document.createElement("div");
     card.className = "word-card";
+
+    const highlightedSentence = word.sentence.replace(
+      new RegExp(word.phrase, "gi"),
+      `<span class="highlight">${word.phrase}</span>`
+    );
+
+
     card.innerHTML = `
       <h2>${word.phrase}</h2>
       <p class="translation">${word.translation}</p>
-      <p class="sentence">"${word.sentence}"</p>
+      <p class="sentence">"${highlightedSentence}"</p>
       <p class="sentenceJP">${word.sentenceJP}</p>
     `;
     container.appendChild(card);
