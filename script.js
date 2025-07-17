@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   gsap.registerPlugin(ScrollTrigger);
 
   // サッカー用語データ
-  const wordData = [
+  const sideScrollItem = [
     {
       phrase: "The 12th Man",
       translation: "12人目の選手（サポーター）",
@@ -83,11 +83,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   ];
 
+  
+  const listEl = document.querySelector('.side-scroll-list');
 
-  // HTMLに動的にカードを追加
-  const container = document.getElementById("card-container");
-
-  wordData.forEach((word, index) => {
+  sideScrollItem.forEach(word => {
     const card = document.createElement("div");
     card.className = "word-card";
 
@@ -96,39 +95,27 @@ document.addEventListener("DOMContentLoaded", function () {
       `<span class="highlight">${word.phrase}</span>`
     );
 
-
     card.innerHTML = `
       <h2>${word.phrase}</h2>
       <p class="translation">${word.translation}</p>
       <p class="sentence">"${highlightedSentence}"</p>
       <p class="sentenceJP">${word.sentenceJP}</p>
     `;
-    container.appendChild(card);
-
-    // ScrollTriggerでカードを一枚ずつフェード表示
-    ScrollTrigger.create({
-      trigger: container,
-      start: `${index * 100}vh top`,
-      end: `${(index + 1) * 100}vh top`,
-      scrub: true,
-      onEnter: () => {
-        card.style.opacity = 1;
-        card.style.zIndex = 10 + index;
-      },
-      onLeaveBack: () => {
-        card.style.opacity = 0;
-        card.style.zIndex = 1;
-      }
-    });
+    listEl.appendChild(card);
   });
 
-  // 全体をpinする
-  ScrollTrigger.create({
-    trigger: container,
-    start: "top top",
-    end: `${wordData.length * 100}vh`,
-    pin: true,
-    scrub: true
+  gsap.to(".side-scroll-list", {
+    x: () => -(listEl.scrollWidth - window.innerWidth),
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".side-scroll",
+      start: "center center",
+      end: () => `+=${listEl.scrollWidth - window.innerWidth}`,
+      scrub: true,
+      pin: true,
+      anticipatePin: 1,
+    }
   });
 });
+
 

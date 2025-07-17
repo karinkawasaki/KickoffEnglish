@@ -73,55 +73,73 @@ h2 {
 }
 
 /* phrasesセクション */
-.phrase {
-    background-color: #D4D8F0;
-    color: #232946;
-    text-align: center;
+#phrase {
+    padding: 0;
 }
 
-
-/* phraseカード */
-.card-container {
+.side-scroll-list-wrapper {
   position: relative;
-  height: 100vh;
+  width: 100vw;
+  height: 600px; /* 高さ*/
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.side-scroll-list {
+  display: flex;
+  gap: 1.5rem; /* カードの間のスペース */
+  padding: 0;
+  margin: 0;
+  width: max-content;
 }
 
 .word-card {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100%;
-  padding: 2rem;
-  background-color: #fffffe;
+  flex: 0 0 350px; 
+  height: 500px;
+  padding: 1.5rem;
+  background-image: url(image/phraseBackkground.png);
+  background-size: cover;
+  background-position: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  opacity: 0;
-  z-index: 1;
-  transition: opacity 0.5s ease;
+  align-items: flex-start;
+  box-sizing: border-box;
+  color: #232946;
+}
+
+.word-card:first-child {
+    border-left: none;
 }
 
 .word-card h2 {
-  font-size: 3rem;
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
 }
 
 .translation {
-  font-size: 1.5rem;
-  margin: 10px 0;
-  color: #EEBBC3;
+  font-size: 1rem;
+  margin: 0.3rem 0;
+  color: #eb677b;
 }
 
 .sentence {
-    font-size: 2rem;
-    max-width: 600px;
-} 
+  font-size: 1.1rem;
+  max-width: 100%;
+  margin-top: 0.5rem;
+}
 
 .sentenceJP {
-  font-size: 1.2rem;
-  max-width: 600px;
-  color: #EEBBC3;
+  font-size: 0.9rem;
+  max-width: 100%;
+  color: #eb677b;
+  margin-top: 0.3rem;
 }
 
 .highlight {
@@ -129,7 +147,6 @@ h2 {
   text-decoration-color: #D4D8F0;
   font-weight: bold;
 }
-
 
 
 /* STARTボタン */
