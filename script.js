@@ -49,7 +49,22 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+//main-contentセクション
+gsap.to('.main_logo', {
+  y: -100, // x軸右方向に100px
+  scrollTrigger: {
+    trigger: '.main_logo', // box要素がアニメーション開始位置に入ったらアニメーション発火
+    start: 'top center', // アニメーション開始位置
+  }
+});
 
+gsap.to('.subtitle', {
+  x: -50, // x軸右方向に100px
+  scrollTrigger: {
+    trigger: '.subtitle', // box要素がアニメーション開始位置に入ったらアニメーション発火
+    start: 'top center', // アニメーション開始位置
+  }
+});
 
 //phrase
 document.addEventListener("DOMContentLoaded", function () {
