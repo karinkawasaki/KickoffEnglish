@@ -10,27 +10,28 @@
 </head>
 <body>
     <section id="main" class="main">
-        <h1>KICKOFF ENGLISH</h1>
-        <div class="main-content">
-            
-            <div class="main_logo">
-                <img src="image/icon.png" alt="icon" class="icon">
-            </div>
-            
-            <div class="main_text">
-                <div class="subtitle">
-                    <p>
-                        サッカーで使われる英語から、<br> 楽しく英語を学ぶサイト。<br>
-                        まずは単語を覚えて、クイズにチャレンジ！
-                    </p>
-                    <p class="english">
-                        Learn English through <br> the language of football.<br>
-                        Start with key phrases and test yourself!
-                    </p>
-                </div>
+        <div class="container">
+            <div class="word" data-text="KICKOFF"></div>
+            <div class="word" data-text="ENGLISH"></div>
+        </div>
+    </section>
+
+    <section class="main-content">
+        
+        <div class="main_logo">
+            <img src="image/icon.png" alt="icon" class="icon">
+        </div>
+        
+        <div class="main_text">
+            <div class="subtitle">
+                <p>
+                    サッカーで使われる英語から、<br> 楽しく英語を学ぶサイト。<br>
+                    まずは単語を覚えて、クイズにチャレンジ！
+                </p>
             </div>
         </div>
     </section>
+
     <section id="phrase" class="phrase">
         <h2>Learn Phrases</h2>
         <p>まずは単語から！</p>
@@ -43,12 +44,18 @@
             </div>
         </div>
     </section>
-
     <section id="quiz" class="quiz">
-        
         <h2>Take the Quiz</h2>
-        <a href="" id="start-btn" class="start-btn">GAME START</a>
+        <button id="start-btn" class="start-btn">GAME START</button>
+
+        <div id="quiz-container" class="quiz-container">
+
+        </div>
+
+        <!-- 結果表示 -->
+        <p id="quiz-result" class="quiz-result"></p>
     </section>
+
     <footer>
         <p>&copy; 2025 Kickoff English </p>
         <img src="image/football.png" alt="football" class="football">
